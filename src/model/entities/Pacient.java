@@ -8,7 +8,7 @@ public class Pacient implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private Integer id;
-	private Integer registSIGS;
+	private Integer registSigs;
 	private String name;
 	private Integer age;
 	
@@ -16,10 +16,10 @@ public class Pacient implements Serializable {
 		
 	}
 	
-	public Pacient(Integer id, Integer registSIGS, String name, Integer age) {
+	public Pacient(Integer id, Integer registSigs, String name, Integer age) {
 		super();
 		this.id = id;
-		this.registSIGS = registSIGS;
+		this.registSigs = registSigs;
 		this.name = name;
 		this.age = age;
 	}
@@ -32,12 +32,12 @@ public class Pacient implements Serializable {
 		this.id = id;
 	}
 
-	public Integer getRegistSIGS() {
-		return registSIGS;
+	public Integer getRegistSigs() {
+		return registSigs;
 	}
 
-	public void setRegistSIGS(Integer registSIGS) {
-		this.registSIGS = registSIGS;
+	public void setRegistSigs(Integer registSigs) {
+		this.registSigs = registSigs;
 	}
 
 	public String getName() {

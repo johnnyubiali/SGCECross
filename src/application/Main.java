@@ -1,23 +1,37 @@
 package application;
 	
 import javafx.application.Application;
-import javafx.stage.Stage;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.image.Image;
+import javafx.stage.Stage;
 
 
 public class Main extends Application {
+	private static Scene mainScene;
+	
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			BorderPane root = new BorderPane();
-			Scene scene = new Scene(root,400,400);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			primaryStage.setScene(scene);
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/MainView.fxml"));
+			
+			ScrollPane scrollPane = loader.load();
+			scrollPane.setFitToHeight(true);
+			scrollPane.setFitToWidth(true);
+			
+			mainScene = new Scene(scrollPane);
+			primaryStage.setScene(mainScene);
+			primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/resources/icons/crossIcon.png")));
+			primaryStage.setTitle("Sistema de Gerenciamento de Cadastros e Estastísticas - CROSS");
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public static Scene getMainScene() {
+		return mainScene;
 	}
 	
 	public static void main(String[] args) {
