@@ -9,6 +9,7 @@ public class Register {
 	public Date dateInsert;
 	public Date dateFinal;
 	private String nameEmployee;
+	private String destination;
 	private String obs;
 
 	Pacient pacient;
@@ -18,12 +19,13 @@ public class Register {
 
 	}
 
-	public Register(Integer id, Date dateInsert, Date dateFinal, String nameEmployee, String obs, Pacient pacient,
+	public Register(Integer id, Date dateInsert, Date dateFinal, String nameEmployee, String destination, String obs, Pacient pacient,
 			Resource resource) {
 		this.id = id;
 		this.dateInsert = dateInsert;
 		this.dateFinal = dateFinal;
 		this.nameEmployee = nameEmployee;
+		this.destination = destination;
 		this.obs = obs;
 		this.pacient = pacient;
 		this.resource = resource;
@@ -60,6 +62,14 @@ public class Register {
 	public void setNameEmployee(String nameEmployee) {
 		this.nameEmployee = nameEmployee;
 	}
+	
+	public String getDestination() {
+		return destination;
+	}
+
+	public void setDestination(String destination) {
+		this.destination = destination;
+	}
 
 	public String getObs() {
 		return obs;
@@ -87,7 +97,7 @@ public class Register {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(dateFinal, dateInsert, id, nameEmployee, obs, pacient, resource);
+		return Objects.hash(dateFinal, dateInsert, id, nameEmployee, destination, obs, pacient, resource);
 	}
 
 	@Override
@@ -101,8 +111,8 @@ public class Register {
 		Register other = (Register) obj;
 		return Objects.equals(dateFinal, other.dateFinal) && Objects.equals(dateInsert, other.dateInsert)
 				&& Objects.equals(id, other.id) && Objects.equals(nameEmployee, other.nameEmployee)
-				&& Objects.equals(obs, other.obs) && Objects.equals(pacient, other.pacient)
-				&& Objects.equals(resource, other.resource);
+				&& Objects.equals(destination, other.destination) && Objects.equals(obs, other.obs) 
+				&& Objects.equals(pacient, other.pacient) && Objects.equals(resource, other.resource);
 	}
 
 }

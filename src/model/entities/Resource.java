@@ -10,21 +10,15 @@ public class Resource implements Serializable {
 	private Integer id;
 	private String specialty;
 	private String bedType;
-	private String destination;
-	private String covidResults;
 	private String ventilationType;
 
 	public Resource() {
-
 	}
 
-	public Resource(Integer id, String specialty, String bedType, String destination, String covidResults,
-			String ventilationType) {
+	public Resource(Integer id, String specialty, String bedType, String ventilationType) {
 		this.id = id;
 		this.specialty = specialty;
 		this.bedType = bedType;
-		this.destination = destination;
-		this.covidResults = covidResults;
 		this.ventilationType = ventilationType;
 	}
 
@@ -52,22 +46,6 @@ public class Resource implements Serializable {
 		this.bedType = bedType;
 	}
 
-	public String getDestination() {
-		return destination;
-	}
-
-	public void setDestination(String destination) {
-		this.destination = destination;
-	}
-
-	public String getCovidResults() {
-		return covidResults;
-	}
-
-	public void setCovidResults(String covidResults) {
-		this.covidResults = covidResults;
-	}
-
 	public String getVentilationType() {
 		return ventilationType;
 	}
@@ -93,12 +71,4 @@ public class Resource implements Serializable {
 		return Objects.equals(id, other.id);
 	}
 
-	@Override
-	public String toString() {
-		return "Resource [id=" + id + ", specialty=" + specialty + ", bedType=" + bedType + ", destination="
-				+ destination + ", covidResults=" + covidResults + ", ventilationType=" + ventilationType + "]";
-	}
-
-	
-	
 }

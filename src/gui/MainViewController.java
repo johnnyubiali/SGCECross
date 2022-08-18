@@ -7,7 +7,7 @@ import java.util.function.Consumer;
 
 import application.Main;
 import gui.util.Alerts;
-import gui.util.Utils;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -17,10 +17,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
-import model.entities.Seller;
-import model.services.DepartmentService;
-import model.services.SellerService;
+import model.services.PacientService;
 
 public class MainViewController implements Initializable {
 
@@ -28,6 +25,8 @@ public class MainViewController implements Initializable {
 	private MenuItem menuAttendanceRegister;
 	@FXML
 	private MenuItem menuAttendanceSearch;
+	@FXML
+	private MenuItem menuPacient;
 	@FXML
 	private MenuItem menuDestiny;
 	@FXML
@@ -43,20 +42,17 @@ public class MainViewController implements Initializable {
 	@FXML
 	private MenuItem menuItemAbout;
 
+	/*
+	 * @FXML public void onMenuItemAttendanceRegister() { Stage parentStage =
+	 * Utils.currentStage(event); Seller obj = new Seller(); createDialogForm(obj,
+	 * "/gui/AttendanceRegister.fxml", parentStage); });
+	 * 
+	 * }
+	 */
 	@FXML
-	public void onMenuItemAttendanceRegister() {
-			Stage parentStage = Utils.currentStage(event);
-			Seller obj = new Seller();
-			createDialogForm(obj, "/gui/AttendanceRegister.fxml", parentStage);
-		});
-
-	}
-
-	@FXML
-	public void onMnuItemDepartmentAction() {
-		loadView("/gui/DepartmentList.fxml", (DepartmentListController controller) -> { // lambda expression
-			controller.setDepartmentService(new DepartmentService());
-			controller.updateTableView();
+	public void onMenuItemPacient(ActionEvent event) {
+		loadView("/gui/PacientForm.fxml", (PacientFormController controller) -> { //lambda expression
+			controller.setPacientService(new PacientService());
 		});
 	}
 
@@ -67,7 +63,7 @@ public class MainViewController implements Initializable {
 	}
 
 	@Override
-	public void initialize(URL uri, ResourceBundle rb) {
+	public void initialize(URL url, ResourceBundle rb) {
 
 	}
 
@@ -91,7 +87,7 @@ public class MainViewController implements Initializable {
 			initializingAction.accept(controller);
 
 		} catch (IOException e) {
-			Alerts.showAlert("IO Exception", "Error Loading View", e.getMessage(), AlertType.ERROR);
+			Alerts.showAlert("IO Exception", "Erro na Loading View!", e.getMessage(), AlertType.ERROR);
 		}
 	}
 

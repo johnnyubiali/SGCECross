@@ -12,16 +12,18 @@ public class Pacient implements Serializable {
 	private String name;
 	private Integer age;
 	
+	CovidResults covidResults;	
+	
 	public Pacient() {
-		
 	}
 	
-	public Pacient(Integer id, Integer registSigs, String name, Integer age) {
+	public Pacient(Integer id, Integer registSigs, String name, Integer age, CovidResults covidResults) {
 		super();
 		this.id = id;
 		this.registSigs = registSigs;
 		this.name = name;
 		this.age = age;
+		this.covidResults =covidResults;
 	}
 
 	public Integer getId() {
@@ -54,6 +56,14 @@ public class Pacient implements Serializable {
 
 	public void setAge(Integer age) {
 		this.age = age;
+	}
+
+	public CovidResults getCovidResults() {
+		return covidResults;
+	}
+
+	public void setCovidResults(CovidResults covidResults) {
+		this.covidResults = covidResults;
 	}
 
 	@Override
