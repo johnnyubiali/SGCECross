@@ -17,6 +17,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
+import model.services.BedTypeService;
 import model.services.CovidResultsService;
 import model.services.PacientService;
 import model.services.ResourceService;
@@ -72,6 +73,15 @@ public class MainViewController implements Initializable{
 	public void onMenuItemResourceAction() {
 		loadView("/gui/ResourceList.fxml", (ResourceListController controller) -> { //lambda expression
 			controller.setResourceService(new ResourceService());
+			controller.updateTableView();
+		});
+			
+	}
+	
+	@FXML
+	public void onMenuItemBedTypeAction() {
+		loadView("/gui/BedTypeList.fxml", (BedTypeListController controller) -> { //lambda expression
+			controller.setBedTypeService(new BedTypeService());
 			controller.updateTableView();
 		});
 			

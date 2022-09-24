@@ -25,7 +25,7 @@
                         <MenuItem fx:id="menuEmployee" mnemonicParsing="false" text="Funcionário" />
                         <MenuItem fx:id="menuPacient" mnemonicParsing="false" onAction="#onMenuItemPacientAction" text="Paciente" />
                         <MenuItem fx:id="menuCovidResults" mnemonicParsing="false" onAction="#onMenuItemCovidResultsAction" text="Resultados de Covid" />
-                      <MenuItem fx:id="menuBedType" mnemonicParsing="false" text="Tipo de Leito" />
+                      <MenuItem fx:id="menuBedType" mnemonicParsing="false" onAction="#onMenuItemBedTypeAction" text="Tipo de Leito" />
                         <MenuItem fx:id="menuVentilationType" mnemonicParsing="false" text="Tipo de Ventilação" />
                     </items>
                   </Menu>

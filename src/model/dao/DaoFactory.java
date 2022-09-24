@@ -1,6 +1,7 @@
 package model.dao;
 
 import db.DB;
+import model.dao.impl.BedTypeDaoJDBC;
 import model.dao.impl.CovidResultsDaoJDBC;
 import model.dao.impl.PacientDaoJDBC;
 import model.dao.impl.RegisterDaoJDBC;
@@ -22,6 +23,10 @@ public class DaoFactory {
 	
 	public static ResourceDao createResourceDao(){
 		return new ResourceDaoJDBC(DB.getConnection());
+	}
+
+	public static BedTypeDao createBedTypeDao() {
+		return new BedTypeDaoJDBC(DB.getConnection());
 	}
 	
 }

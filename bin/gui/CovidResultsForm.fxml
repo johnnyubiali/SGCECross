@@ -52,7 +52,7 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="txtId" maxWidth="40.0" minWidth="40.0" prefWidth="40.0" GridPane.columnIndex="1">
+            <TextField fx:id="txtId" disable="true" maxWidth="40.0" minWidth="40.0" prefWidth="40.0" GridPane.columnIndex="1">
                <font>
                   <Font name="Verdana" size="12.0" />
                </font></TextField>
