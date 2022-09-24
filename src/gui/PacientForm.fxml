@@ -5,16 +5,16 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="363.0" prefWidth="768.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.PacientFormController">
+<VBox prefHeight="388.0" prefWidth="757.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.PacientFormController">
    <children>
-   <Label layoutX="31.0" layoutY="20.0" text="Registro de Pacientes" textAlignment="CENTER">
+   <Label text="Registro de Pacientes" textAlignment="CENTER">
          <font>
             <Font name="Verdana Bold" size="18.0" />
          </font>
@@ -22,10 +22,10 @@
             <Insets left="5.0" top="5.0" />
          </padding>
       </Label>
-      <GridPane layoutX="14.0" layoutY="57.0" prefHeight="175.0" prefWidth="605.0">
+      <GridPane prefHeight="250.0" prefWidth="757.0">
         <columnConstraints>
-          <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="364.0" minWidth="10.0" prefWidth="364.0" />
+          <ColumnConstraints maxWidth="145.0" minWidth="10.0" prefWidth="136.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="364.0" minWidth="10.0" prefWidth="328.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="237.0" minWidth="10.0" prefWidth="121.0" />
         </columnConstraints>
         <rowConstraints>
@@ -84,17 +84,17 @@
                   <DropShadow />
                </effect>
             </TextField>
-            <TextField fx:id="txtRegistSigs" maxWidth="70.0" minWidth="70.0" prefWidth="70.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <TextField fx:id="txtRegistSigs" maxWidth="70.0" minWidth="70.0" prefWidth="70.0" promptText="Matrícula" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <effect>
                   <DropShadow />
                </effect>
             </TextField>
-            <TextField fx:id="txtName" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <TextField fx:id="txtName" promptText="Nome do Paciente" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <effect>
                   <DropShadow />
                </effect>
             </TextField>
-            <TextField fx:id="txtAge" maxWidth="40.0" minWidth="40.0" prefWidth="40.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <TextField fx:id="txtAge" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" promptText="Idade" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <effect>
                   <DropShadow />
                </effect>
@@ -104,9 +104,9 @@
             <Insets left="20.0" top="20.0" />
          </padding>
       </GridPane>
-      <HBox layoutX="119.0" layoutY="271.0" prefHeight="62.0" prefWidth="358.0">
+      <HBox>
          <children>
-            <Button fx:id="btSave" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" maxHeight="40.0" maxWidth="60.0" minHeight="40.0" minWidth="60.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="60.0" text="Salvar" textAlignment="CENTER" textFill="#028a1f">
+            <Button fx:id="btSave" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" maxHeight="40.0" maxWidth="60.0" minHeight="40.0" minWidth="60.0" mnemonicParsing="false" onAction="#onBtSaveAction" prefHeight="40.0" prefWidth="60.0" text="Salvar" textAlignment="CENTER" textFill="#028a1f">
                <font>
                   <Font name="Verdana Bold" size="12.0" />
                </font>
@@ -114,7 +114,7 @@
                   <DropShadow />
                </effect>
             </Button>
-            <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="40.0" maxWidth="60.0" minHeight="40.0" minWidth="60.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="60.0" text="Editar" textAlignment="CENTER">
+            <Button fx:id="btEdit" alignment="CENTER" contentDisplay="CENTER" maxHeight="40.0" maxWidth="60.0" minHeight="40.0" minWidth="60.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="60.0" text="Editar" textAlignment="CENTER">
                <HBox.margin>
                   <Insets left="40.0" />
                </HBox.margin>
@@ -125,7 +125,7 @@
                   <DropShadow />
                </effect>
             </Button>
-            <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="40.0" maxWidth="70.0" minHeight="40.0" minWidth="70.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="70.0" text="Excluir" textAlignment="CENTER" textFill="RED">
+            <Button fx:id="btDelete" alignment="CENTER" contentDisplay="CENTER" maxHeight="40.0" maxWidth="70.0" minHeight="40.0" minWidth="70.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="70.0" text="Excluir" textAlignment="CENTER" textFill="RED">
                <HBox.margin>
                   <Insets left="40.0" />
                </HBox.margin>
@@ -136,7 +136,7 @@
                   <DropShadow />
                </effect>
             </Button>
-            <Button fx:id="btCancel" alignment="CENTER" cancelButton="true" contentDisplay="CENTER" maxHeight="40.0" maxWidth="80.0" minHeight="40.0" minWidth="80.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" text="Cancelar" textAlignment="CENTER" textFill="#ff5900">
+            <Button fx:id="btCancel" alignment="CENTER" cancelButton="true" contentDisplay="CENTER" maxHeight="40.0" maxWidth="80.0" minHeight="40.0" minWidth="80.0" mnemonicParsing="false" onAction="#onBtCancelAction" prefHeight="40.0" prefWidth="80.0" text="Cancelar" textAlignment="CENTER" textFill="#ff5900">
                <HBox.margin>
                   <Insets left="80.0" />
                </HBox.margin>
@@ -148,6 +148,12 @@
                </effect>
             </Button>
          </children>
+         <padding>
+            <Insets left="150.0" top="30.0" />
+         </padding>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
       </HBox>
    </children>
-</AnchorPane>
+</VBox>

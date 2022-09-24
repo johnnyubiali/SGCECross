@@ -25,8 +25,11 @@ public class CovidResultsDaoJDBC implements CovidResultsDao {
 	public void insert(CovidResults obj) {
 		PreparedStatement st = null;
 		try {
-			st = conn.prepareStatement("INSERT INTO covidresults " + "(Results) " + "VALUES " + "(?)",
-					Statement.RETURN_GENERATED_KEYS);
+			st = conn.prepareStatement("INSERT INTO covidresults " 
+										+ "(Results) " 
+										+ "VALUES " 
+										+ "(?)",
+										Statement.RETURN_GENERATED_KEYS);
 
 			st.setString(1, obj.getResults());
 			int rowsAffected = st.executeUpdate();
@@ -57,7 +60,7 @@ public class CovidResultsDaoJDBC implements CovidResultsDao {
 			st = conn.prepareStatement("UPDATE covidresults " + "SET Results = ?" + "WHERE Id = ? ");
 
 			st.setString(1, obj.getResults());
-			st.setInt(4, obj.getId());
+			st.setInt(2, obj.getId());
 
 			st.executeUpdate();
 		} catch (SQLException e) {
@@ -121,7 +124,7 @@ public class CovidResultsDaoJDBC implements CovidResultsDao {
 		ResultSet rs = null;
 		try {
 			st = conn.prepareStatement(
-					"SELECT * FROM covidresults" + "ORDER BY Name");
+					"SELECT * FROM covidresults ORDER BY Results");
 
 			rs = st.executeQuery();
 

@@ -17,13 +17,15 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import model.entities.CovidResults;
 import model.entities.Pacient;
 import model.exceptions.ValidationException;
 import model.services.PacientService;
 
-public class PacientFormController implements Initializable {
+public class PacientFormController implements Initializable{
 
 	private Pacient entity;
 
@@ -44,6 +46,9 @@ public class PacientFormController implements Initializable {
 	private TextField txtAge;
 	
 	@FXML
+	private ComboBox<CovidResults> comboBoxCovidResults;
+	
+	@FXML
 	private Label labelErrorName;
 
 	@FXML
@@ -56,7 +61,7 @@ public class PacientFormController implements Initializable {
 	private Button btSave;
 	
 	@FXML
-	private Button btUpdate;
+	private Button btDelete;
 	
 	@FXML
 	private Button btEdit;
@@ -64,12 +69,16 @@ public class PacientFormController implements Initializable {
 	@FXML
 	private Button btCancel;
 
-	public void subscribeDataChangeListener(DataChangeListener listener) {
-		dataChangeListeners.add(listener);
+	public void setPacient(Pacient entity) {
+		this.entity = entity;
 	}
 	
-	public void setPacientService(PacientService service) { // dependecy inject
+	public void setServices(PacientService service) { // dependecy inject
 		this.service = service;
+	}
+	
+	public void subscribeDataChangeListener(DataChangeListener listener) {
+		dataChangeListeners.add(listener);
 	}
 
 	@FXML

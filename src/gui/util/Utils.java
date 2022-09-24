@@ -19,7 +19,7 @@ public class Utils {
 	public static Stage currentStage(ActionEvent event) {
 		return (Stage) ((Node) event.getSource()).getScene().getWindow(); // create a window on the current stage
 	}
-
+	
 	public static Integer tryParseToInt(String str) {
 		try {
 			return Integer.parseInt(str);

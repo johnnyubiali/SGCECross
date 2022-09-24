@@ -13,14 +13,16 @@ public class Register {
 	private String obs;
 
 	Pacient pacient;
+	CovidResults covidResults;
 	Resource resource;
+	
 
 	public Register() {
 
 	}
 
-	public Register(Integer id, Date dateInsert, Date dateFinal, String nameEmployee, String destination, String obs, Pacient pacient,
-			Resource resource) {
+	public Register(Integer id, Date dateInsert, Date dateFinal, String nameEmployee, String destination, String obs, 
+					Pacient pacient, CovidResults covidResults, Resource resource) {
 		this.id = id;
 		this.dateInsert = dateInsert;
 		this.dateFinal = dateFinal;
@@ -28,6 +30,7 @@ public class Register {
 		this.destination = destination;
 		this.obs = obs;
 		this.pacient = pacient;
+		this.covidResults = covidResults;
 		this.resource = resource;
 	}
 
@@ -86,6 +89,14 @@ public class Register {
 	public void setPacient(Pacient pacient) {
 		this.pacient = pacient;
 	}
+	
+	public CovidResults getCovidResults() {
+		return covidResults;
+	}
+
+	public void setCovidResults(CovidResults covidResults) {
+		this.covidResults = covidResults;
+	}
 
 	public Resource getResource() {
 		return resource;
@@ -97,7 +108,7 @@ public class Register {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(dateFinal, dateInsert, id, nameEmployee, destination, obs, pacient, resource);
+		return Objects.hash(dateFinal, dateInsert, id, nameEmployee, destination, obs, pacient, covidResults, resource);
 	}
 
 	@Override
@@ -111,7 +122,7 @@ public class Register {
 		Register other = (Register) obj;
 		return Objects.equals(dateFinal, other.dateFinal) && Objects.equals(dateInsert, other.dateInsert)
 				&& Objects.equals(id, other.id) && Objects.equals(nameEmployee, other.nameEmployee)
-				&& Objects.equals(destination, other.destination) && Objects.equals(obs, other.obs) 
+				&& Objects.equals(destination, other.destination) && Objects.equals(obs, other.obs) && Objects.equals(covidResults, other.covidResults)
 				&& Objects.equals(pacient, other.pacient) && Objects.equals(resource, other.resource);
 	}
 

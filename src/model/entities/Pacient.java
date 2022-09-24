@@ -12,18 +12,15 @@ public class Pacient implements Serializable {
 	private String name;
 	private Integer age;
 	
-	CovidResults covidResults;	
-	
 	public Pacient() {
 	}
 	
-	public Pacient(Integer id, Integer registSigs, String name, Integer age, CovidResults covidResults) {
+	public Pacient(Integer id, Integer registSigs, String name, Integer age) {
 		super();
 		this.id = id;
 		this.registSigs = registSigs;
 		this.name = name;
 		this.age = age;
-		this.covidResults =covidResults;
 	}
 
 	public Integer getId() {
@@ -58,31 +55,29 @@ public class Pacient implements Serializable {
 		this.age = age;
 	}
 
-	public CovidResults getCovidResults() {
-		return covidResults;
-	}
-
-	public void setCovidResults(CovidResults covidResults) {
-		this.covidResults = covidResults;
-	}
-
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = super.hashCode();
-		result = prime * result + Objects.hash(id);
-		return result;
+		return Objects.hash(age, id, name, registSigs);
 	}
 
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
-		if (!super.equals(obj))
+		if (obj == null)
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
 		Pacient other = (Pacient) obj;
-		return Objects.equals(id, other.id);
+		return Objects.equals(age, other.age) && Objects.equals(id, other.id) && Objects.equals(name, other.name)
+				&& Objects.equals(registSigs, other.registSigs);
 	}
+
+	@Override
+	public String toString() {
+		return "Pacient [id=" + id + ", registSigs=" + registSigs + ", name=" + name + ", age=" + age
+				+  "]";
+	}
+
+	
 }

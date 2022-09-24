@@ -1,6 +1,7 @@
 package model.entities;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class CovidResults implements Serializable{
 
@@ -33,6 +34,30 @@ public class CovidResults implements Serializable{
 	public void setResults(String results) {
 		this.results = results;
 	}
+
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		CovidResults other = (CovidResults) obj;
+		return Objects.equals(id, other.id);
+	}
+
+	@Override
+	public String toString() {
+		return "CovidResults [id=" + id + ", results=" + results + "]";
+	}
+
 	
 	
 	

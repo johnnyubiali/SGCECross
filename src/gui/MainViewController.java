@@ -17,9 +17,10 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
+import model.services.CovidResultsService;
 import model.services.PacientService;
 
-public class MainViewController implements Initializable {
+public class MainViewController implements Initializable{
 
 	@FXML
 	private MenuItem menuAttendanceRegister;
@@ -50,14 +51,24 @@ public class MainViewController implements Initializable {
 	 * }
 	 */
 	@FXML
-	public void onMenuItemPacient(ActionEvent event) {
-		loadView("/gui/PacientForm.fxml", (PacientFormController controller) -> { //lambda expression
+	public void onMenuItemPacientAction(ActionEvent event) {
+		loadView("/gui/PacientList.fxml", (PacientListController controller) -> { //lambda expression
 			controller.setPacientService(new PacientService());
+			controller.updateTableView();
+		});		
+	}
+	
+	@FXML
+	public void onMenuItemCovidResultsAction() {
+		loadView("/gui/CovidResultsList.fxml", (CovidResultsListController controller) -> { //lambda expression
+			controller.setCovidResultsService(new CovidResultsService());
+			controller.updateTableView();
 		});
+			
 	}
 
 	@FXML
-	public void onMnuItemAboutAction() {
+	public void onMenuItemAboutAction() {
 		loadView("/gui/About.fxml", x -> {
 		});
 	}
@@ -67,9 +78,7 @@ public class MainViewController implements Initializable {
 
 	}
 
-	private synchronized <T> void loadView(String absoluteName, Consumer<T> initializingAction) { // keep app stable
-																									// with synchronized
-																									// mode
+	private synchronized <T> void loadView(String absoluteName, Consumer<T> initializingAction) { // keep app stable with synchronized mode
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource(absoluteName));
 			VBox newVbox = loader.load();

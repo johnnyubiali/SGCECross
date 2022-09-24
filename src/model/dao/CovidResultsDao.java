@@ -12,5 +12,4 @@ public interface CovidResultsDao {
 	void deleteById (Integer id);
 	CovidResults findById(Integer id);
 	List<CovidResults> findAll();
-
 }
