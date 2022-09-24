@@ -105,7 +105,7 @@ public class VentilationTypeListController implements Initializable, DataChangeL
 			controller.updateFormData();
 
 			Stage dialogStage = new Stage();
-			dialogStage.setTitle("Editar Resultado de Covid-19");
+			dialogStage.setTitle("Editar Tipo de Ventilação");
 			dialogStage.setScene(new Scene(pane));
 			dialogStage.setResizable(false);
 			dialogStage.initOwner(parentStage);

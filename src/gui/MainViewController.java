@@ -20,6 +20,7 @@ import javafx.scene.layout.VBox;
 import model.services.BedTypeService;
 import model.services.CovidResultsService;
 import model.services.DestinationService;
+import model.services.EmployeeService;
 import model.services.PacientService;
 import model.services.ResourceService;
 import model.services.VentilationTypeService;
@@ -102,6 +103,15 @@ public class MainViewController implements Initializable{
 	public void onMenuItemVentilationTypeAction() {
 		loadView("/gui/VentilationTypeList.fxml", (VentilationTypeListController controller) -> { //lambda expression
 			controller.setVentilationTypeService(new VentilationTypeService());
+			controller.updateTableView();
+		});
+			
+	}
+	
+	@FXML
+	public void onMenuItemEmployeeAction() {
+		loadView("/gui/EmployeeList.fxml", (EmployeeListController controller) -> { //lambda expression
+			controller.setEmployeeService(new EmployeeService());
 			controller.updateTableView();
 		});
 			

@@ -4,6 +4,7 @@ import db.DB;
 import model.dao.impl.BedTypeDaoJDBC;
 import model.dao.impl.CovidResultsDaoJDBC;
 import model.dao.impl.DestinationDaoJDBC;
+import model.dao.impl.EmployeeDaoJDBC;
 import model.dao.impl.PacientDaoJDBC;
 import model.dao.impl.RegisterDaoJDBC;
 import model.dao.impl.ResourceDaoJDBC;
@@ -37,6 +38,10 @@ public class DaoFactory {
 
 	public static VentilationTypeDao createVentilationTypeDao() {
 		return new VentilationTypeDaoJDBC(DB.getConnection());
+	}
+
+	public static EmployeeDao createEmployeeDao() {
+		return new EmployeeDaoJDBC(DB.getConnection());
 	}
 	
 }

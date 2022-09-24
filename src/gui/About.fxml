@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox prefHeight="218.0" prefWidth="395.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/18">
+<VBox prefHeight="219.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label text="Sobre">
          <font>
@@ -16,10 +16,45 @@
             <Insets bottom="10.0" left="20.0" top="10.0" />
          </padding>
       </Label>
-      <Label text="Este aplicativo foi desenvolvido por ....">
+      <Label prefHeight="17.0" prefWidth="402.0" text="Desenvolvido por:">
          <padding>
-            <Insets left="20.0" />
+            <Insets left="130.0" />
+         </padding>
+         <font>
+            <Font name="Verdana Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label prefHeight="36.0" prefWidth="400.0" text="Johnny Ubiali" textFill="#3c01ff">
+         <font>
+            <Font name="Verdana Bold" size="18.0" />
+         </font>
+         <padding>
+            <Insets left="130.0" top="10.0" />
          </padding>
       </Label>
+      <Label prefHeight="40.0" prefWidth="400.0" text="Contato:" textFill="#3c01ff">
+         <font>
+            <Font name="Verdana Bold" size="18.0" />
+         </font>
+         <padding>
+            <Insets left="150.0" />
+         </padding>
+      </Label>
+      <Label prefHeight="44.0" prefWidth="380.0" text="Email:" textFill="#3c01ff">
+         <font>
+            <Font name="Verdana Bold" size="14.0" />
+         </font>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <padding>
+            <Insets left="170.0" />
+         </padding>
+      </Label>
+      <Hyperlink prefHeight="23.0" prefWidth="403.0" text="johnnyubiali@hotmail.com">
+         <padding>
+            <Insets left="120.0" />
+         </padding>
+      </Hyperlink>
    </children>
 </VBox>

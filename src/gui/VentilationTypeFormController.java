@@ -93,7 +93,7 @@ public class VentilationTypeFormController implements Initializable{
 		obj.setId(Utils.tryParseToInt(txtId.getText()));
 		
 		if(txtDescription.getText() == null || txtDescription.getText().trim().equals("")) { // exception to empty fields
-			exception.addError("results", "* Campo obrigatório!");
+			exception.addError("description", "* Campo obrigatório!");
 		}
 		obj.setDescription(txtDescription.getText());
 		

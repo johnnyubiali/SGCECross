@@ -93,7 +93,7 @@ public class ResourceFormController implements Initializable{
 		obj.setId(Utils.tryParseToInt(txtId.getText()));
 		
 		if(txtSpecialty.getText() == null || txtSpecialty.getText().trim().equals("")) { // exception to empty fields
-			exception.addError("results", "* Campo obrigatório!");
+			exception.addError("specialty", "* Campo obrigatório!");
 		}
 		obj.setSpecialty(txtSpecialty.getText());
 		

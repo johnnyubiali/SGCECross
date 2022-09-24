@@ -29,41 +29,44 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import model.entities.Destination;
-import model.services.DestinationService;
+import model.entities.Employee;
+import model.services.EmployeeService;
 
-public class DestinationListController implements Initializable, DataChangeListener {
+public class EmployeeListController implements Initializable, DataChangeListener {
 
-	private DestinationService service;
-
-	@FXML
-	private TableView<Destination> tableViewDestination;
+	private EmployeeService service;
 
 	@FXML
-	private TableColumn<Destination, Integer> tableColumnId;
+	private TableView<Employee> tableViewEmployee;
 
 	@FXML
-	private TableColumn<Destination, String> tableColumnDestiny;
+	private TableColumn<Employee, Integer> tableColumnId;
 
 	@FXML
-	private TableColumn<Destination, Destination> tableColumnEDIT;
+	private TableColumn<Employee, String> tableColumnName;
+	
+	@FXML
+	private TableColumn<Employee, String> tableColumnOffice;
 
 	@FXML
-	private TableColumn<Destination, Destination> tableColumnREMOVE;
+	private TableColumn<Employee, Employee> tableColumnEDIT;
+
+	@FXML
+	private TableColumn<Employee, Employee> tableColumnREMOVE;
 
 	@FXML
 	private Button btNew;
 
-	private ObservableList<Destination> obsList;
+	private ObservableList<Employee> obsList;
 
 	@FXML
 	public void onBtNewAction(ActionEvent event) {
 		Stage parentStage = Utils.currentStage(event);
-		Destination obj = new Destination();
-		createDialogForm(obj, "/gui/DestinationForm.fxml", parentStage);
+		Employee obj = new Employee();
+		createDialogForm(obj, "/gui/EmployeeForm.fxml", parentStage);
 	}
 
-	public void setDestinationService(DestinationService service) { // dependecy inject
+	public void setEmployeeService(EmployeeService service) { // dependecy inject
 		this.service = service;
 	}
 
@@ -74,10 +77,11 @@ public class DestinationListController implements Initializable, DataChangeListe
 
 	private void initializeNodes() {
 		tableColumnId.setCellValueFactory(new PropertyValueFactory<>("id"));
-		tableColumnDestiny.setCellValueFactory(new PropertyValueFactory<>("destiny"));
+		tableColumnName.setCellValueFactory(new PropertyValueFactory<>("name"));
+		tableColumnOffice.setCellValueFactory(new PropertyValueFactory<>("office"));
 
 		Stage stage = (Stage) Main.getMainScene().getWindow(); // return config of this scene
-		tableViewDestination.prefHeightProperty().bind(stage.heightProperty()); // table follow this window height config
+		tableViewEmployee.prefHeightProperty().bind(stage.heightProperty()); // table follow this window height config
 
 	}
 
@@ -85,27 +89,27 @@ public class DestinationListController implements Initializable, DataChangeListe
 		if (service == null) {
 			throw new IllegalStateException("Service was null!"); // return error if service is null
 		}
-		List<Destination> list = service.findAll(); // return list of DestinationService
+		List<Employee> list = service.findAll(); // return list of EmployeeService
 		obsList = FXCollections.observableArrayList(list); // instance obsList with data and reference to list
-		tableViewDestination.setItems(obsList); // load itens in tableView
+		tableViewEmployee.setItems(obsList); // load itens in tableView
 		initEditButtons(); // add new button edit type in all lines that nedded
 		initRemoveButtons();
 
 	}
 
-	private void createDialogForm(Destination obj, String absoluteName, Stage parentStage) {
+	private void createDialogForm(Employee obj, String absoluteName, Stage parentStage) {
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource(absoluteName));
 			Pane pane = loader.load();
 
-			DestinationFormController controller = loader.getController();
-			controller.setDestination(obj);
-			controller.setDestinationService(new DestinationService());
+			EmployeeFormController controller = loader.getController();
+			controller.setEmployee(obj);
+			controller.setEmployeeService(new EmployeeService());
 			controller.subscribeDataChangeListener(this);
 			controller.updateFormData();
 
 			Stage dialogStage = new Stage();
-			dialogStage.setTitle("Editar Destino");
+			dialogStage.setTitle("Editar Funcionário");
 			dialogStage.setScene(new Scene(pane));
 			dialogStage.setResizable(false);
 			dialogStage.initOwner(parentStage);
@@ -125,11 +129,11 @@ public class DestinationListController implements Initializable, DataChangeListe
 
 	private void initEditButtons() {
 		tableColumnEDIT.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
-		tableColumnEDIT.setCellFactory(param -> new TableCell<Destination, Destination>() {
+		tableColumnEDIT.setCellFactory(param -> new TableCell<Employee, Employee>() {
 			private final Button button = new Button("Editar");
 
 			@Override
-			protected void updateItem(Destination obj, boolean empty) {
+			protected void updateItem(Employee obj, boolean empty) {
 				super.updateItem(obj, empty);
 				if (obj == null) {
 					setGraphic(null);
@@ -137,7 +141,7 @@ public class DestinationListController implements Initializable, DataChangeListe
 				}
 				setGraphic(button);
 				button.setOnAction(
-						event -> createDialogForm(obj, "/gui/DestinationForm.fxml", Utils.currentStage(event)));
+						event -> createDialogForm(obj, "/gui/EmployeeForm.fxml", Utils.currentStage(event)));
 			}
 
 		});
@@ -145,11 +149,11 @@ public class DestinationListController implements Initializable, DataChangeListe
 
 	private void initRemoveButtons() {
 		tableColumnREMOVE.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
-		tableColumnREMOVE.setCellFactory(param -> new TableCell<Destination, Destination>() {
+		tableColumnREMOVE.setCellFactory(param -> new TableCell<Employee, Employee>() {
 			private final Button button = new Button("Excluir");
 
 			@Override
-			protected void updateItem(Destination obj, boolean empty) {
+			protected void updateItem(Employee obj, boolean empty) {
 				super.updateItem(obj, empty);
 				if (obj == null) {
 					setGraphic(null);
@@ -161,7 +165,7 @@ public class DestinationListController implements Initializable, DataChangeListe
 		});
 	}
 
-	private void removeEntity(Destination obj) {
+	private void removeEntity(Employee obj) {
 		
 		Optional<ButtonType> result = Alerts.showConfirmation("Confirmação", "Tem certeza disso?");
 		

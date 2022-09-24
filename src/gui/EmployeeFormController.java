@@ -19,15 +19,15 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import model.entities.BedType;
+import model.entities.Employee;
 import model.exceptions.ValidationException;
-import model.services.BedTypeService;
+import model.services.EmployeeService;
 
-public class BedTypeFormController implements Initializable{
+public class EmployeeFormController implements Initializable{
 
-	private BedType entity;
+	private Employee entity;
 	
-	private BedTypeService service;
+	private EmployeeService service;
 	
 	private List<DataChangeListener> dataChangeListeners = new ArrayList<>();
 	
@@ -35,10 +35,16 @@ public class BedTypeFormController implements Initializable{
 	private TextField txtId;
 	
 	@FXML
-	private TextField txtDescription;
+	private TextField txtName;
 	
 	@FXML
-	private Label labelErrorDescription;
+	private TextField txtOffice;
+	
+	@FXML
+	private Label labelErrorName;
+	
+	@FXML
+	private Label labelErrorOffice;
 	
 	@FXML
 	private Button btSave;
@@ -46,11 +52,11 @@ public class BedTypeFormController implements Initializable{
 	@FXML
 	private Button btCancel;
 	
-	public void setBedType(BedType entity) {
+	public void setEmployee(Employee entity) {
 		this.entity = entity;
 	}
 	
-	public void setBedTypeService(BedTypeService service) {
+	public void setEmployeeService(EmployeeService service) {
 		this.service = service;
 	}
 	
@@ -85,17 +91,22 @@ public class BedTypeFormController implements Initializable{
 		listener.onDataChanged();
 	}
 
-	private BedType getFormData() {
-		BedType obj = new BedType();
+	private Employee getFormData() {
+		Employee obj = new Employee();
 		
 		ValidationException exception = new ValidationException("Erro na validação dos dados!");
 		
 		obj.setId(Utils.tryParseToInt(txtId.getText()));
 		
-		if(txtDescription.getText() == null || txtDescription.getText().trim().equals("")) { // exception to empty fields
-			exception.addError("description", "* Campo obrigatório!");
+		if(txtName.getText() == null || txtName.getText().trim().equals("")) { // exception to empty fields
+			exception.addError("name", "* Campo obrigatório!");
 		}
-		obj.setDescription(txtDescription.getText());
+		obj.setName(txtName.getText());
+		
+		if(txtOffice.getText() == null || txtOffice.getText().trim().equals("")) { // exception to empty fields
+			exception.addError("office", "* Campo obrigatório!");
+		}
+		obj.setOffice(txtOffice.getText());
 		
 		if(exception.getErrors().size() > 0) { // if exist errors throw exception
 			throw exception;
@@ -118,7 +129,8 @@ public class BedTypeFormController implements Initializable{
 	
 	private void initializeNodes() {
 		Constraints.setTextFieldInteger(txtId);
-		Constraints.setTextFieldMaxLength(txtDescription, 40);
+		Constraints.setTextFieldMaxLength(txtName, 60);
+		Constraints.setTextFieldMaxLength(txtOffice, 60);
 	}
 	
 	public void updateFormData() {
@@ -126,12 +138,14 @@ public class BedTypeFormController implements Initializable{
 			throw new IllegalStateException("Entity was null");
 		}
 		txtId.setText(String.valueOf(entity.getId()));
-		txtDescription.setText(entity.getDescription());
+		txtName.setText(entity.getName());
+		txtOffice.setText(entity.getOffice());
 	}
 	
 	private void setErrorMessages(Map<String, String> errors) {
 		Set<String> fields = errors.keySet();
 		
-		labelErrorDescription.setText(fields.contains("description") ? errors.get("description") : "");
+		labelErrorName.setText(fields.contains("name") ? errors.get("name") : "");
+		labelErrorOffice.setText(fields.contains("office") ? errors.get("office") : "");
 	}
 }

@@ -113,7 +113,7 @@ public class PacientListController implements Initializable, DataChangeListener 
 			controller.updateFormData();
 
 			Stage dialogStage = new Stage();
-			dialogStage.setTitle("Registro de Paciente");
+			dialogStage.setTitle("Editar Paciente");
 			dialogStage.setScene(new Scene(pane));
 			dialogStage.setResizable(false);
 			dialogStage.initOwner(parentStage);

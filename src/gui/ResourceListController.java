@@ -105,7 +105,7 @@ public class ResourceListController implements Initializable, DataChangeListener
 			controller.updateFormData();
 
 			Stage dialogStage = new Stage();
-			dialogStage.setTitle("Editar Resultado de Covid-19");
+			dialogStage.setTitle("Editar Especialidade");
 			dialogStage.setScene(new Scene(pane));
 			dialogStage.setResizable(false);
 			dialogStage.initOwner(parentStage);

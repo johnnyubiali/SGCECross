@@ -22,7 +22,7 @@
                     <items>
                         <MenuItem fx:id="menuDestiny" mnemonicParsing="false" onAction="#onMenuItemDestinationAction" text="Destino" />
                         <MenuItem fx:id="menuSpeciality" mnemonicParsing="false" onAction="#onMenuItemResourceAction" text="Especialidade" />
-                        <MenuItem fx:id="menuEmployee" mnemonicParsing="false" text="Funcionário" />
+                        <MenuItem fx:id="menuEmployee" mnemonicParsing="false" onAction="#onMenuItemEmployeeAction" text="Funcionário" />
                         <MenuItem fx:id="menuPacient" mnemonicParsing="false" onAction="#onMenuItemPacientAction" text="Paciente" />
                         <MenuItem fx:id="menuCovidResults" mnemonicParsing="false" onAction="#onMenuItemCovidResultsAction" text="Resultados de Covid" />
                       <MenuItem fx:id="menuBedType" mnemonicParsing="false" onAction="#onMenuItemBedTypeAction" text="Tipo de Leito" />
