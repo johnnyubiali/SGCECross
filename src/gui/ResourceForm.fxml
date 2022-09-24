@@ -12,9 +12,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox minHeight="250.0" minWidth="500.0" prefHeight="257.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CovidResultsFormController">
+<VBox minHeight="250.0" minWidth="500.0" prefHeight="257.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ResourceFormController">
    <children>
-      <Label text="Resultados de Covid-19" textAlignment="CENTER">
+      <Label text="Especialidade" textAlignment="CENTER">
          <padding>
             <Insets left="10.0" top="10.0" />
          </padding>
@@ -39,12 +39,12 @@
                   <Font name="Verdana Bold" size="14.0" />
                </font>
             </Label>
-            <Label text="Resultado" GridPane.rowIndex="1">
+            <Label text="Especialidade" GridPane.rowIndex="1">
                <font>
                   <Font name="Verdana Bold" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="labelErrorResults" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <Label fx:id="labelErrorSpecialty" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <padding>
                   <Insets left="10.0" />
                </padding>
@@ -56,7 +56,7 @@
                <font>
                   <Font name="Verdana" size="12.0" />
                </font></TextField>
-            <TextField fx:id="txtResults" minHeight="30.0" minWidth="250.0" prefHeight="30.0" prefWidth="266.0" promptText="Digite um resultado" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <TextField fx:id="txtSpecialty" minHeight="30.0" minWidth="250.0" prefHeight="30.0" prefWidth="266.0" promptText="Digite um resultado" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <padding>
                   <Insets left="10.0" />
                </padding>

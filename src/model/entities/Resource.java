@@ -9,17 +9,13 @@ public class Resource implements Serializable {
 
 	private Integer id;
 	private String specialty;
-	private String bedType;
-	private String ventilationType;
 
 	public Resource() {
 	}
 
-	public Resource(Integer id, String specialty, String bedType, String ventilationType) {
+	public Resource(Integer id, String specialty) {
 		this.id = id;
 		this.specialty = specialty;
-		this.bedType = bedType;
-		this.ventilationType = ventilationType;
 	}
 
 	public Integer getId() {
@@ -36,22 +32,6 @@ public class Resource implements Serializable {
 
 	public void setSpecialty(String specialty) {
 		this.specialty = specialty;
-	}
-
-	public String getBedType() {
-		return bedType;
-	}
-
-	public void setBedType(String bedType) {
-		this.bedType = bedType;
-	}
-
-	public String getVentilationType() {
-		return ventilationType;
-	}
-
-	public void setVentilationType(String ventilationType) {
-		this.ventilationType = ventilationType;
 	}
 
 	@Override

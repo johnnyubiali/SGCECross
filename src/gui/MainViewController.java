@@ -19,6 +19,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 import model.services.CovidResultsService;
 import model.services.PacientService;
+import model.services.ResourceService;
 
 public class MainViewController implements Initializable{
 
@@ -62,6 +63,15 @@ public class MainViewController implements Initializable{
 	public void onMenuItemCovidResultsAction() {
 		loadView("/gui/CovidResultsList.fxml", (CovidResultsListController controller) -> { //lambda expression
 			controller.setCovidResultsService(new CovidResultsService());
+			controller.updateTableView();
+		});
+			
+	}
+	
+	@FXML
+	public void onMenuItemResourceAction() {
+		loadView("/gui/ResourceList.fxml", (ResourceListController controller) -> { //lambda expression
+			controller.setResourceService(new ResourceService());
 			controller.updateTableView();
 		});
 			

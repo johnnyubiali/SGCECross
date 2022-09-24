@@ -21,7 +21,7 @@
                   <Menu mnemonicParsing="false" text="Cadastrar">
                     <items>
                         <MenuItem fx:id="menuDestiny" mnemonicParsing="false" text="Destino" />
-                        <MenuItem fx:id="menuSpeciality" mnemonicParsing="false" text="Especialidade" />
+                        <MenuItem fx:id="menuSpeciality" mnemonicParsing="false" onAction="#onMenuItemResourceAction" text="Especialidade" />
                         <MenuItem fx:id="menuEmployee" mnemonicParsing="false" text="Funcionário" />
                         <MenuItem fx:id="menuPacient" mnemonicParsing="false" onAction="#onMenuItemPacientAction" text="Paciente" />
                         <MenuItem fx:id="menuCovidResults" mnemonicParsing="false" onAction="#onMenuItemCovidResultsAction" text="Resultados de Covid" />
