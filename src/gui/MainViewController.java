@@ -19,8 +19,10 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 import model.services.BedTypeService;
 import model.services.CovidResultsService;
+import model.services.DestinationService;
 import model.services.PacientService;
 import model.services.ResourceService;
+import model.services.VentilationTypeService;
 
 public class MainViewController implements Initializable{
 
@@ -82,6 +84,24 @@ public class MainViewController implements Initializable{
 	public void onMenuItemBedTypeAction() {
 		loadView("/gui/BedTypeList.fxml", (BedTypeListController controller) -> { //lambda expression
 			controller.setBedTypeService(new BedTypeService());
+			controller.updateTableView();
+		});
+			
+	}
+	
+	@FXML
+	public void onMenuItemDestinationAction() {
+		loadView("/gui/DestinationList.fxml", (DestinationListController controller) -> { //lambda expression
+			controller.setDestinationService(new DestinationService());
+			controller.updateTableView();
+		});
+			
+	}
+	
+	@FXML
+	public void onMenuItemVentilationTypeAction() {
+		loadView("/gui/VentilationTypeList.fxml", (VentilationTypeListController controller) -> { //lambda expression
+			controller.setVentilationTypeService(new VentilationTypeService());
 			controller.updateTableView();
 		});
 			

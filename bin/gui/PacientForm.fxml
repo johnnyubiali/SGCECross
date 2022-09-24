@@ -106,39 +106,20 @@
       </GridPane>
       <HBox>
          <children>
-            <Button fx:id="btSave" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" maxHeight="40.0" maxWidth="60.0" minHeight="40.0" minWidth="60.0" mnemonicParsing="false" onAction="#onBtSaveAction" prefHeight="40.0" prefWidth="60.0" text="Salvar" textAlignment="CENTER" textFill="#028a1f">
+            <Button fx:id="btSave" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" maxHeight="40.0" maxWidth="80.0" minHeight="40.0" minWidth="80.0" mnemonicParsing="false" onAction="#onBtSaveAction" prefHeight="40.0" prefWidth="80.0" text="Salvar" textAlignment="CENTER" textFill="#028a1f">
                <font>
                   <Font name="Verdana Bold" size="12.0" />
                </font>
                <effect>
                   <DropShadow />
                </effect>
-            </Button>
-            <Button fx:id="btEdit" alignment="CENTER" contentDisplay="CENTER" maxHeight="40.0" maxWidth="60.0" minHeight="40.0" minWidth="60.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="60.0" text="Editar" textAlignment="CENTER">
                <HBox.margin>
-                  <Insets left="40.0" />
+                  <Insets left="110.0" top="15.0" />
                </HBox.margin>
-               <font>
-                  <Font name="Verdana Bold" size="12.0" />
-               </font>
-               <effect>
-                  <DropShadow />
-               </effect>
-            </Button>
-            <Button fx:id="btDelete" alignment="CENTER" contentDisplay="CENTER" maxHeight="40.0" maxWidth="70.0" minHeight="40.0" minWidth="70.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="70.0" text="Excluir" textAlignment="CENTER" textFill="RED">
-               <HBox.margin>
-                  <Insets left="40.0" />
-               </HBox.margin>
-               <font>
-                  <Font name="Verdana Bold" size="12.0" />
-               </font>
-               <effect>
-                  <DropShadow />
-               </effect>
             </Button>
             <Button fx:id="btCancel" alignment="CENTER" cancelButton="true" contentDisplay="CENTER" maxHeight="40.0" maxWidth="80.0" minHeight="40.0" minWidth="80.0" mnemonicParsing="false" onAction="#onBtCancelAction" prefHeight="40.0" prefWidth="80.0" text="Cancelar" textAlignment="CENTER" textFill="#ff5900">
                <HBox.margin>
-                  <Insets left="80.0" />
+                  <Insets left="110.0" top="15.0" />
                </HBox.margin>
                <font>
                   <Font name="Verdana Bold" size="12.0" />
@@ -148,9 +129,6 @@
                </effect>
             </Button>
          </children>
-         <padding>
-            <Insets left="150.0" top="30.0" />
-         </padding>
          <VBox.margin>
             <Insets />
          </VBox.margin>
