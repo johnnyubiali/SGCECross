@@ -17,20 +17,22 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
+import model.services.AnswerService;
 import model.services.BedTypeService;
 import model.services.CovidResultsService;
 import model.services.DestinationService;
 import model.services.EmployeeService;
 import model.services.PacientService;
+import model.services.RegisterService;
 import model.services.ResourceService;
 import model.services.VentilationTypeService;
 
 public class MainViewController implements Initializable{
 
 	@FXML
-	private MenuItem menuAttendanceRegister;
+	private MenuItem menuRegister;
 	@FXML
-	private MenuItem menuAttendanceSearch;
+	private MenuItem menuSearch;
 	@FXML
 	private MenuItem menuPacient;
 	@FXML
@@ -40,6 +42,8 @@ public class MainViewController implements Initializable{
 	@FXML
 	private MenuItem menuEmployee;
 	@FXML
+	private MenuItem menuAnswer;
+	@FXML
 	private MenuItem menuCovidResults;
 	@FXML
 	private MenuItem menuBedType;
@@ -48,13 +52,15 @@ public class MainViewController implements Initializable{
 	@FXML
 	private MenuItem menuItemAbout;
 
-	/*
-	 * @FXML public void onMenuItemAttendanceRegister() { Stage parentStage =
-	 * Utils.currentStage(event); Seller obj = new Seller(); createDialogForm(obj,
-	 * "/gui/AttendanceRegister.fxml", parentStage); });
-	 * 
-	 * }
-	 */
+	
+	@FXML
+	public void onMenuItemRegisterAction(ActionEvent event) {
+		loadView("/gui/RegisterList.fxml", (RegisterListController controller) -> { //lambda expression
+			controller.setRegisterService(new RegisterService());
+			controller.updateTableView();
+		});		
+	}
+	
 	@FXML
 	public void onMenuItemPacientAction(ActionEvent event) {
 		loadView("/gui/PacientList.fxml", (PacientListController controller) -> { //lambda expression
@@ -112,6 +118,15 @@ public class MainViewController implements Initializable{
 	public void onMenuItemEmployeeAction() {
 		loadView("/gui/EmployeeList.fxml", (EmployeeListController controller) -> { //lambda expression
 			controller.setEmployeeService(new EmployeeService());
+			controller.updateTableView();
+		});
+			
+	}
+	
+	@FXML
+	public void onMenuItemAnswerAction() {
+		loadView("/gui/AnswerList.fxml", (AnswerListController controller) -> { //lambda expression
+			controller.setAnswerService(new AnswerService());
 			controller.updateTableView();
 		});
 			

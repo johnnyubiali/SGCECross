@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="568.0" prefWidth="975.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.RegisterFormController">
+   <children>
+   <Label text="Registro de Pacientes" textAlignment="CENTER">
+         <font>
+            <Font name="Verdana Bold" size="18.0" />
+         </font>
+         <padding>
+            <Insets left="5.0" top="5.0" />
+         </padding>
+      </Label>
+      <GridPane prefHeight="472.0" prefWidth="975.0">
+        <columnConstraints>
+          <ColumnConstraints maxWidth="145.0" minWidth="10.0" prefWidth="136.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="364.0" minWidth="10.0" prefWidth="328.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="237.0" minWidth="10.0" prefWidth="168.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="322.0" minWidth="10.0" prefWidth="305.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="36.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="67.0" minHeight="10.0" prefHeight="62.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="ID">
+               <font>
+                  <Font name="Verdana Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label text="Registro SIGS" GridPane.rowIndex="4">
+               <font>
+                  <Font name="Verdana Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label text="Nome" GridPane.rowIndex="5">
+               <font>
+                  <Font name="Verdana Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label text="Idade" GridPane.rowIndex="6">
+               <font>
+                  <Font name="Verdana Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelErrorRegistSigs" prefHeight="15.0" prefWidth="0.0" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="4">
+               <font>
+                  <Font name="Verdana Bold Italic" size="12.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </Label>
+            <Label fx:id="labelErrorPacient" prefHeight="15.0" prefWidth="0.0" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="5">
+               <font>
+                  <Font name="Verdana Bold Italic" size="12.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </Label>
+            <Label fx:id="labelErrorAge" prefHeight="15.0" prefWidth="0.0" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="6">
+               <font>
+                  <Font name="Verdana Bold Italic" size="12.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </Label>
+            <TextField fx:id="txtId" disable="true" maxWidth="40.0" minWidth="40.0" prefWidth="40.0" GridPane.columnIndex="1">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </TextField>
+            <TextField fx:id="txtRegistSigs" maxWidth="70.0" minWidth="70.0" prefWidth="70.0" promptText="Matrícula" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </TextField>
+            <TextField fx:id="txtPacient" promptText="Nome do Paciente" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </TextField>
+            <TextField fx:id="txtAge" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" promptText="Idade" GridPane.columnIndex="1" GridPane.rowIndex="6">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </TextField>
+            <Label text="Data Inicial" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Verdana Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label text="Hora Inicial" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Verdana Bold" size="12.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="80.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="Data Final" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Verdana Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label text="HoraFinal" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Verdana Bold" size="12.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="95.0" />
+               </GridPane.margin>
+            </Label>
+            <DatePicker fx:id="dpDateInsert" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <DatePicker fx:id="dpDateFinal" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="timeInsert" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <TextField fx:id="timeFinal" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <Label text="Funcionário" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Verdana Bold" size="12.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="comboBoxEmployee" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label text="Resultado Covid" GridPane.rowIndex="7">
+               <font>
+                  <Font name="Verdana Bold" size="12.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="comboBoxCovidResults" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <Label text="Especialidade" GridPane.rowIndex="8">
+               <font>
+                  <Font name="Verdana Bold" size="12.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="comboBoxResource" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <Label text="Tipo de Leito" GridPane.columnIndex="2" GridPane.rowIndex="8">
+               <font>
+                  <Font name="Verdana Bold" size="12.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="65.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="Tipo de Ventilação" GridPane.columnIndex="2" GridPane.rowIndex="7">
+               <font>
+                  <Font name="Verdana Bold" size="12.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="30.0" />
+               </GridPane.margin>
+            </Label>
+            <ComboBox fx:id="comboBoxVentilationType" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+            <ComboBox fx:id="comboBoxBedType" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="8" />
+            <Label text="Resposta" GridPane.rowIndex="9">
+               <font>
+                  <Font name="Verdana Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label text="Destino" GridPane.columnIndex="2" GridPane.rowIndex="9">
+               <font>
+                  <Font name="Verdana Bold" size="12.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="100.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="Observação" GridPane.rowIndex="10">
+               <font>
+                  <Font name="Verdana Bold" size="12.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="comboBoxAnswer" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <ComboBox fx:id="comboBoxDestination" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="9" />
+            <TextField fx:id="txtObs" alignment="TOP_LEFT" prefHeight="57.0" prefWidth="364.0" promptText="Máximo de 300 caracteres" GridPane.columnIndex="1" GridPane.rowIndex="10" GridPane.rowSpan="2147483647">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </TextField>
+         </children>
+         <padding>
+            <Insets left="20.0" top="20.0" />
+         </padding>
+      </GridPane>
+      <HBox prefHeight="54.0" prefWidth="861.0">
+         <children>
+            <Button fx:id="btSave" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" maxHeight="40.0" maxWidth="80.0" minHeight="40.0" minWidth="80.0" mnemonicParsing="false" onAction="#onBtSaveAction" prefHeight="40.0" prefWidth="80.0" text="Salvar" textAlignment="CENTER" textFill="#028a1f">
+               <font>
+                  <Font name="Verdana Bold" size="12.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+               <HBox.margin>
+                  <Insets left="110.0" top="15.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="btCancel" alignment="CENTER" cancelButton="true" contentDisplay="CENTER" maxHeight="40.0" maxWidth="80.0" minHeight="40.0" minWidth="80.0" mnemonicParsing="false" onAction="#onBtCancelAction" prefHeight="40.0" prefWidth="80.0" text="Cancelar" textAlignment="CENTER" textFill="#ff5900">
+               <HBox.margin>
+                  <Insets left="110.0" top="15.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="Verdana Bold" size="12.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+         </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </HBox>
+   </children>
+</VBox>

@@ -6,7 +6,7 @@ import model.dao.DaoFactory;
 import model.dao.RegisterDao;
 import model.entities.Register;
 
-public class AttendanceRegisterService {
+public class RegisterService {
 	private RegisterDao dao = DaoFactory.createRegisterDao();
 
 	public List<Register> findAll() {

@@ -14,7 +14,7 @@
               <menus>
                 <Menu mnemonicParsing="false" text="Atendimento">
                   <items>
-                    <MenuItem fx:id="menuAttendanceRegister" mnemonicParsing="false" text="Registrar Atendimento" />
+                    <MenuItem fx:id="menuRegister" mnemonicParsing="false" onAction="#onMenuItemRegisterAction" text="Registrar Atendimento" />
                         <MenuItem fx:id="menuAttendanceSearch" mnemonicParsing="false" text="Pesquisar Atendimento" />
                   </items>
                 </Menu>
@@ -24,6 +24,7 @@
                         <MenuItem fx:id="menuSpeciality" mnemonicParsing="false" onAction="#onMenuItemResourceAction" text="Especialidade" />
                         <MenuItem fx:id="menuEmployee" mnemonicParsing="false" onAction="#onMenuItemEmployeeAction" text="Funcionário" />
                         <MenuItem fx:id="menuPacient" mnemonicParsing="false" onAction="#onMenuItemPacientAction" text="Paciente" />
+                        <MenuItem fx:id="menuAnswer" mnemonicParsing="false" onAction="#onMenuItemAnswerAction" text="Resposta" />
                         <MenuItem fx:id="menuCovidResults" mnemonicParsing="false" onAction="#onMenuItemCovidResultsAction" text="Resultados de Covid" />
                       <MenuItem fx:id="menuBedType" mnemonicParsing="false" onAction="#onMenuItemBedTypeAction" text="Tipo de Leito" />
                         <MenuItem fx:id="menuVentilationType" mnemonicParsing="false" onAction="#onMenuItemVentilationTypeAction" text="Tipo de Ventilação" />

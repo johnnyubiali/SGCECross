@@ -6,32 +6,42 @@ import java.util.Objects;
 public class Register {
 
 	private Integer id;
-	public Date dateInsert;
-	public Date dateFinal;
-	private String nameEmployee;
-	private String destination;
+	private Date dateInsert;
+	private Date timeInsert;
+	private Date dateFinal;
+	private Date timeFinal;
 	private String obs;
 
+	Answer answer;
+	Employee employee;
+	Destination destination;
 	Pacient pacient;
 	CovidResults covidResults;
 	Resource resource;
+	BedType bedType;
+	VentilationType ventilationType;
 	
 
 	public Register() {
 
 	}
 
-	public Register(Integer id, Date dateInsert, Date dateFinal, String nameEmployee, String destination, String obs, 
-					Pacient pacient, CovidResults covidResults, Resource resource) {
+	public Register(Integer id, Date dateInsert, Date timeInsert, Date dateFinal, Date timeFinal, Answer answer, Employee employee, Destination destination, String obs, 
+					Pacient pacient, CovidResults covidResults, Resource resource, BedType bedType, VentilationType ventilationType) {
 		this.id = id;
 		this.dateInsert = dateInsert;
+		this.timeInsert = timeInsert;
 		this.dateFinal = dateFinal;
-		this.nameEmployee = nameEmployee;
+		this.timeFinal = timeFinal;
+		this.answer = answer;
+		this.employee = employee;
 		this.destination = destination;
 		this.obs = obs;
 		this.pacient = pacient;
 		this.covidResults = covidResults;
 		this.resource = resource;
+		this.bedType = bedType;
+		this.ventilationType = ventilationType;
 	}
 
 	public Integer getId() {
@@ -49,6 +59,14 @@ public class Register {
 	public void setDateInsert(Date dateInsert) {
 		this.dateInsert = dateInsert;
 	}
+	
+	public Date getTimeInsert() {
+		return timeInsert;
+	}
+
+	public void setTimeInsert(Date timeInsert) {
+		this.timeInsert = timeInsert;
+	}
 
 	public Date getDateFinal() {
 		return dateFinal;
@@ -57,20 +75,36 @@ public class Register {
 	public void setDateFinal(Date dateFinal) {
 		this.dateFinal = dateFinal;
 	}
-
-	public String getNameEmployee() {
-		return nameEmployee;
-	}
-
-	public void setNameEmployee(String nameEmployee) {
-		this.nameEmployee = nameEmployee;
-	}
 	
-	public String getDestination() {
+	public Date getTimeFinal() {
+		return timeFinal;
+	}
+
+	public void setTimeFinal(Date timeFinal) {
+		this.timeFinal = timeFinal;
+	}
+
+	public	Answer getAnswer() {
+		return answer;
+	}
+
+	public void setAnswer(Answer answer) {
+		this.answer = answer;
+	}
+
+	public Employee getEmployee() {
+		return employee;
+	}
+
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
+	}
+
+	public Destination getDestination() {
 		return destination;
 	}
 
-	public void setDestination(String destination) {
+	public void setDestination(Destination destination) {
 		this.destination = destination;
 	}
 
@@ -106,9 +140,25 @@ public class Register {
 		this.resource = resource;
 	}
 
+	public BedType getBedType() {
+		return bedType;
+	}
+
+	public void setBedType(BedType bedType) {
+		this.bedType = bedType;
+	}
+
+	public VentilationType getVentilationType() {
+		return ventilationType;
+	}
+
+	public void setVentilationType(VentilationType ventilationType) {
+		this.ventilationType = ventilationType;
+	}
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(dateFinal, dateInsert, id, nameEmployee, destination, obs, pacient, covidResults, resource);
+		return Objects.hash(id);
 	}
 
 	@Override
@@ -120,10 +170,6 @@ public class Register {
 		if (getClass() != obj.getClass())
 			return false;
 		Register other = (Register) obj;
-		return Objects.equals(dateFinal, other.dateFinal) && Objects.equals(dateInsert, other.dateInsert)
-				&& Objects.equals(id, other.id) && Objects.equals(nameEmployee, other.nameEmployee)
-				&& Objects.equals(destination, other.destination) && Objects.equals(obs, other.obs) && Objects.equals(covidResults, other.covidResults)
-				&& Objects.equals(pacient, other.pacient) && Objects.equals(resource, other.resource);
+		return Objects.equals(id, other.id);
 	}
-
 }
